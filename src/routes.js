@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router";
+import Header from "./components/header";
 import DemoPage from "./pages/home";
 
 
@@ -9,13 +10,10 @@ function App() {
       path: "/",
       element: <DemoPage />
     },
-    {
-      path: "/home",
-      element: <DemoPage />
-    },
   ]
   return (
     <div className="w-100">
+      <Header />
       <Routes>
         {
           routes.map(({path, element})=> (

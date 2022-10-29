@@ -5,7 +5,6 @@ import App from './routes';
 import 'antd/dist/antd.css';
 import './styles/index.scss'
 import './styles/general.scss'
-import './styles/page.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
