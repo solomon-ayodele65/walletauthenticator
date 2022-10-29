@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './routes';
 import 'antd/dist/antd.css';
+import './styles/index.scss'
+import './styles/general.scss'
+import './styles/page.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
