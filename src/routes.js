@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import DemoPage from "./pages/home";
 
@@ -29,6 +30,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

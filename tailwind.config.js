@@ -11,7 +11,8 @@ module.exports = {
         primary_dark: "#061423",
         primary_deep: "#021422",
         primary_deeper: "#010E18",
-        primary_red: "#CC383D"
+        primary_red: "#CC383D",
+        primary_gray: "#A8A8A8"
       }
     },
   },
