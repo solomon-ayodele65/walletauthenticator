@@ -10,7 +10,7 @@ function Header() {
   const [toggle, setToggle] = useState(false)
   return (
     <div className='w-full z-50'>
-      <div className={`w-full fixed z-50 top-0 ${toggle?"h-[350px]":"h-[72px]"} bg-p-[#0000004D] bg-[#021422F2] md:flex md:justify-around py-3 shadow-lg`}>
+      <div className={`w-full fixed z-50 top-0 ${toggle?"h-[350px]":"h-[72px]"} bg-p-[#0000004D] bg-[#02142288] md:flex md:justify-around py-3 shadow-lg`}>
         <div className='flex justify-around'>
           <Link to="/">
             <img alt='section bookie' src={logo} className="w-[180px] img-fluid" />

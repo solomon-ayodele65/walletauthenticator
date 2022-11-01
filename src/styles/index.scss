@@ -29,6 +29,10 @@
   font-size: 20px !important;
 }
 
+.site-navigation-steps{
+  color: #44FFFF;
+}
+
 
 
 
@@ -39,7 +43,7 @@
   // background: url(../resources/images/home.gif);
   // background-color: #061423;
   // background-blend-mode: darken;
-  background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)), url(../resources/images/home.gif);
+  background: linear-gradient(rgba(1, 12, 34, 0.9),rgba(1, 12, 34, 0.9)), url(../resources/images/home.gif);
   background-position: center;
   background-size: cover;
 }
@@ -49,6 +53,16 @@
   min-height: 80vh;
   background: url(../resources/images/feedback.svg);
   background-position: center;
-  background-size: contain;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+.booking-top{
+  width: 100%;
+  min-height: 200px;
+  background: linear-gradient(rgba(1, 12, 34, 0.9),rgba(1, 12, 34, 0.9)), url(../resources/images/booking.svg);
+  background-position: center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }

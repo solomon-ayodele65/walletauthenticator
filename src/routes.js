@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import Booking from "./pages/booking";
 import DemoPage from "./pages/home";
 
 
@@ -10,6 +11,10 @@ function App() {
     {
       path: "/",
       element: <DemoPage />
+    },
+    {
+      path: "/booking",
+      element: <Booking />
     },
   ]
   return (

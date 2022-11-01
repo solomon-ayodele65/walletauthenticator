@@ -39,7 +39,7 @@ function Footer() {
           </div>
         </Bounce>
         <Bounce bottom>
-          <div className='text-center md:text-start'>
+          <div className='text-center text-md-start'>
             <p className='text-sm font-normal'><span className='text-primary_base'>Atmost Technologies ©</span> All Rights Reserved - 2023</p>
           </div>
         </Bounce>
