@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
-import Footer from "./components/footer";
 import Header from "./components/header";
 import Booking from "./pages/booking";
+import Contact from "./pages/contact";
 import DemoPage from "./pages/home";
 
 
@@ -13,8 +13,12 @@ function App() {
       element: <DemoPage />
     },
     {
-      path: "/booking",
+      path: "/booking/*",
       element: <Booking />
+    },
+    {
+      path: "/contact",
+      element: <Contact />
     },
   ]
   return (
@@ -35,7 +39,6 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
     </div>
   );
 }

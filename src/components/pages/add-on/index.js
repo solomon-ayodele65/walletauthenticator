@@ -1,10 +1,8 @@
-import { Col, Row } from 'antd'
+import { Col, Empty, Row } from 'antd'
 import React from 'react'
 import ListCard from '../card'
-import Empty from '../empty'
 
-
-function BookingSeatTab({data}) {
+function AddOnTab({data}) {
   return (
     <div className='w-full h-full'>
       {data?.length ? (
@@ -25,4 +23,4 @@ function BookingSeatTab({data}) {
   )
 }
 
-export default BookingSeatTab
+export default AddOnTab

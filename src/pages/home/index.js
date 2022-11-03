@@ -6,8 +6,11 @@ import club from '../../resources/images/club.svg'
 import user from '../../resources/images/user.svg'
 import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
+import Footer from '../../components/footer'
+import { useNavigate } from 'react-router'
 
 function DemoPage() {
+  const navigate = useNavigate()
   const how = [
     {
       id: 1,
@@ -26,7 +29,7 @@ function DemoPage() {
     }
   ]
   return (
-    <div className='w-full h-full'>
+    <div className='w-full'>
       <div className={`w-100 h-[100vh] home-top`}>
         <div className='md:w-[70%] mx-auto pt-[150px] md:pt-[18%] px-3 text-center space-y-5'>
           <Fade top>
@@ -43,7 +46,7 @@ function DemoPage() {
           </Fade>
           <Fade bottom>
             <div>
-              <button className='w-[230px] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Book a Table <RightOutlined /></button>
+              <button onClick={()=>navigate("/booking")} className='w-[230px] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Book a Table <RightOutlined /></button>
             </div>
           </Fade>
         </div>
@@ -93,7 +96,7 @@ function DemoPage() {
                   <p className='text-primary_red'>/ Location : Mamaia</p>
                   <p className='text-lg font-medium'>Fratelli Beach & Ristorante is the jewel of the Fratelli Grup venues. It has a complex set-up, offering a one-stop fun shop experience as it includes a club, a private beach and a restaurant- Biutiful by the Sea.</p>
                   <div className=''>
-                    <button className='w-full md:w-[230px] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Book a Table <RightOutlined /></button>
+                    <button onClick={()=>navigate("/booking")} className='w-full md:w-[230px] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Book a Table <RightOutlined /></button>
                   </div>
                 </div>
               </Bounce>
@@ -143,31 +146,8 @@ function DemoPage() {
         </Fade>
       </div>
 
-      <div className='w-full pt-[50px] md:pt-[100px] bg-primary_deep space-y-16'>
-        <Fade big>
-          <div className='text-center'>
-            <p className='text-primary_red font-medium'>Partner with us</p>
-            <p className='text-2xl md:text-5xl font-extrabold'>Follow our Partners. Join the fun!</p>
-          </div>
-        </Fade>
-        <div className='w-full md:w-[80%] mx-auto bg-primary_red py-5 px-4 md:px-5 md:flex justify-between space-y-5 md:space-y-0'>
-          <Bounce left>
-            <div className='w-full md:w-[50%] text-center md:text-start'>
-              <p className='text-lg md:text-xl font-bold text-black'>Upcoming Events and Special Offers</p>
-              <p className='text-xl md:text-3xl font-extrabold text-white'>Get Weekly Newsletters</p>
-            </div>
-          </Bounce>
-          <Bounce right>
-            <div className='w-full md:w-[50%] md:flex justify-end md:space-x-5 space-y-3 md:space-y-0'>
-              <input 
-                type="email" 
-                placeholder='Your email address' 
-                className='w-full md:w-[60%] h-[56px] bg-transparent text-white placeholder:text-primary_gray border-2 border-primary_gray px-3 rounded-xl focus:border-2 focus:border-primary_gray' 
-              />
-              <button className='w-full md:w-[40%] h-[56px] bg-black text-white rounded-xl hover:opacity-90'>Subscribe</button>
-            </div>
-          </Bounce>
-        </div>
+      <div className='w-full'>
+        <Footer />
       </div>
     </div>
   )

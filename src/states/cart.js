@@ -7,4 +7,9 @@ const cart = atom({
   default: [],
 });
 
+export const totalAmount = atom({
+  key: 'totalAmount',
+  default: 0,
+});
+
 export default cart
