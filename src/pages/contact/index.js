@@ -2,20 +2,23 @@ import { Input } from 'antd'
 import React from 'react'
 import { FaFacebookF, FaInstagram, FaPhoneAlt, FaSnapchatGhost, FaTwitter } from 'react-icons/fa'
 import { RiCompass3Line, RiMapPinFill } from 'react-icons/ri'
+import { Fade } from 'react-reveal'
 import Footer from '../../components/footer'
 
 function Contact() {
   return (
     <div className='w-full'>
       <div className='w-full contact_top text-center'>
-        <div className='px-[20px] md:px-[25%] pt-[10%]'>
-          <p className='text-xl md:text-6xl font-bold'>Contacts</p>
-          <p className='text-lg font-medium text-primary_gray'>Morbi sit amet eros massa. Vestibulum dignissim varius dictum. Nunc vehicula sed est vitae elementum. </p>
-        </div>
+        <Fade big>
+          <div className='px-[20px] md:px-[25%] pt-[24%] md:pt-[10%]'>
+            <p className='text-4xl md:text-6xl font-bold'>Contacts</p>
+            <p className='text-lg font-medium text-primary_gray'>Morbi sit amet eros massa. Vestibulum dignissim varius dictum. Nunc vehicula sed est vitae elementum. </p>
+          </div>
+        </Fade>
       </div>
 
       <div className='w-full py-10 md:py-20 bg-primary_deep'>
-        <div className='w-full md:w-[90%] lg:w-[70%] mx-auto md:flex justify-between md:space-x-20 px-3'>
+        <div className='w-full md:w-[90%] lg:w-[70%] mx-auto md:flex justify-between space-y-3 md:space-y-0 md:space-x-20 px-3'>
           <div className='w-full md:w-[50%]'>
             <div className='space-y-5'>
               <p className='text-xl md:text-4xl font-extrabold'>Opening Hours:</p>

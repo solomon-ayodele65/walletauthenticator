@@ -195,7 +195,7 @@ function OrderTab({
                 onChange={({target:{value}})=>setPaymentDetail({...paymentDetail, card_no: value})}
               />
             </Form.Item>
-            <div className='md:flex space-x-5'>
+            <div className='md:flex md:space-x-5'>
               <Form.Item label={<span className='text-white'>Expiry Date</span>} className='w-full md:w-[50%]'>
                 <Input
                   size='large' 
