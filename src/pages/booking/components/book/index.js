@@ -21,6 +21,7 @@ import a2 from '../../../../resources/images/addOn/2.svg'
 import a3 from '../../../../resources/images/addOn/3.svg'
 import a4 from '../../../../resources/images/addOn/4.svg'
 import a5 from '../../../../resources/images/addOn/5.svg'
+import view from '../../../../resources/images/view.svg'
 import { useRecoilValue } from 'recoil'
 import cart, { totalAmount } from '../../../../states/cart'
 import OrderTab from '../../../../components/pages/order'
@@ -30,6 +31,7 @@ function BookPage() {
   const cartList = useRecoilValue(cart)
   const total = useRecoilValue(totalAmount)
   const [calendar, setCalendar] = useState(false)
+  const [fullView, setFullView] = useState(false)
   const [detailModal, setDetailModal] = useState(false)
   const [timeValue, setTimeValue] = useState({
     hour: 12,
@@ -169,7 +171,7 @@ function BookPage() {
               <p className='text-white text-xl md:text-3xl font-bold'>Club X</p>
               <p className='text-base font-normal text-primary_gray w-full md:w-auto truncate'>Morbi sit amet eros massa. Vestibulum dignissim varius dictum. Nunc vehicula sed est vitae elementum. </p>
               <div className='w-full hidden md:block space-y-2'>
-                <button className='w-full lg:w-[30%] py-3 bg-[transparent] text-[white] border-2 rounded-xl hover:bg-[white] hover:text-[black] transition'>
+                <button onClick={()=>setFullView(true)} className='w-full lg:w-[30%] py-3 bg-[transparent] text-[white] border-2 rounded-xl hover:bg-[white] hover:text-[black] transition'>
                   View 3D Table settings
                 </button>
                 <p className='text-primary_red text-sm font-normal'>Select date & seat below</p>
@@ -179,7 +181,7 @@ function BookPage() {
         </div>
         <Bounce bottom>
           <div className='w-full md:hidden px-3 text-center space-y-5'>
-            <button className='w-full md:w-[30%] py-2 bg-[transparent] text-[white] border-2 rounded-lg hover:bg-[white] hover:text-[black] transition'>
+            <button onClick={()=>setFullView(true)} className='w-full md:w-[30%] py-2 bg-[transparent] text-[white] border-2 rounded-lg hover:bg-[white] hover:text-[black] transition'>
               Pick Your Table
             </button>
             <p className='text-primary_red text-sm font-normal'>Select date & seat below</p>
@@ -295,6 +297,19 @@ function BookPage() {
             <button onClick={()=>setCalendar(false)} className='w-[80%] mx-[auto] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Done</button>
           </div>
         </div>
+      </Modal>
+
+
+
+      {/* full view */}
+      <Modal
+        visible={fullView}
+        onCancel={()=>setFullView(false)}
+        bodyStyle={{backgroundColor: "#021422", padding: 0, color: "#fff"}}
+        footer={false}
+        width={"80%"}
+      >
+        <img alt='section-bookie' src={view} className="w-full h-full img-fluid" />
       </Modal>
     </div>
   )
