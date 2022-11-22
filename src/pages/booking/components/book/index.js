@@ -1,30 +1,22 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState } from 'react'
 import club from '../../../../resources/images/club.svg'
 import { Bounce, Fade } from 'react-reveal'
 import { MdArrowForwardIos } from 'react-icons/md'
 import { RiCalendarTodoLine } from 'react-icons/ri'
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { Modal, Radio } from 'antd'
-import { useState } from 'react'
 import Calendar from 'moedim'
 import moment from 'moment'
 import BookingSeatTab from '../../../../components/pages/seat'
 import AddOnTab from '../../../../components/pages/add-on'
+import OrderTab from '../../../../components/pages/order'
+import BookedSeatTab from '../../../../components/pages/booked'
 import Cart from '../../../../components/pages/cart'
-import s1 from '../../../../resources/images/seat/1.svg'
-import s2 from '../../../../resources/images/seat/2.svg'
-import s3 from '../../../../resources/images/seat/3.svg'
-import s4 from '../../../../resources/images/seat/4.svg'
-import s5 from '../../../../resources/images/seat/5.svg'
-import a1 from '../../../../resources/images/addOn/1.svg'
-import a2 from '../../../../resources/images/addOn/2.svg'
-import a3 from '../../../../resources/images/addOn/3.svg'
-import a4 from '../../../../resources/images/addOn/4.svg'
-import a5 from '../../../../resources/images/addOn/5.svg'
 import view from '../../../../resources/images/view.svg'
 import { useRecoilValue } from 'recoil'
 import cart, { totalAmount } from '../../../../states/cart'
-import OrderTab from '../../../../components/pages/order'
+import { formatDateFull } from '../../../../services/utils'
 
 function BookPage() {
   const [section, setSection] = useState(2)
@@ -39,9 +31,10 @@ function BookPage() {
     int: "am"
   })
   const { hour, min, int } = timeValue
+  const [preDate, setPreDate] = useState(formatDateFull())
   const [value, setValue] = useState({
-    date: new Date(),
-    time: new Date().getTime()
+    date: formatDateFull(),
+    time: formatDateFull().getTime()
   })
   const { date } = value
 
@@ -83,81 +76,6 @@ function BookPage() {
     },
   ]
 
-  const seats = [
-    {
-      id: 1,
-      img: s1,
-      name: "Seat 1",
-      description: "3 seaters",
-      price: "15.56"
-    },
-    {
-      id: 2,
-      img: s2,
-      name: "Seat 17",
-      description: "12 seaters",
-      price: "100.56"
-    },
-    {
-      id: 3,
-      img: s3,
-      name: "Seat 18",
-      description: "3 seaters",
-      price: "15.56"
-    },
-    {
-      id: 4,
-      img: s4,
-      name: "Seat 21",
-      description: "12 seaters",
-      price: "100.56"
-    },
-    {
-      id: 5,
-      img: s5,
-      name: "Seat 22",
-      description: "5 seaters",
-      price: "24.99"
-    },
-  ]
-
-  const addOns = [
-    {
-      id: 1,
-      img: a1,
-      name: "Hookah",
-      description: "3 seaters",
-      price: "15.56"
-    },
-    {
-      id: 2,
-      img: a2,
-      name: "Ciroc",
-      description: "1 Bottle",
-      price: "100.56"
-    },
-    {
-      id: 3,
-      img: a3,
-      name: "Belaire",
-      description: "2 Bottles",
-      price: "250.56"
-    },
-    {
-      id: 4,
-      img: a5,
-      name: "Hookah",
-      description: "3 seaters",
-      price: "24.99"
-    },
-    {
-      id: 5,
-      img: a4,
-      name: "Hookah",
-      description: "12 seaters",
-      price: "100.56"
-    },
-  ]
 
   return (
     <div className='w-full pb-3'>
@@ -207,8 +125,8 @@ function BookPage() {
           </div>
         </div>
 
-        <div className='w-full md:w-[95%] lg:w-[75%] mx-auto flex justify-between space-x-3'>
-          <div className='w-full md:w-[75%] md:space-y-1'>
+        <div className='w-full md:w-[95%] lg:w-[85%] xl:w-[75%] mx-auto flex justify-between space-x-3'>
+          <div className='w-full lg:w-[75%] md:space-y-1'>
             <div className='w-full bg-primary_light md:bg-primary_deep py-3 px-4 mx-auto md:rounded-lg flex justify-between'>
               <div className='flex space-x-3'>
                 <p className='text-2xl text-primary_base'><RiCalendarTodoLine /></p>
@@ -226,15 +144,18 @@ function BookPage() {
             </div>
 
             <div className='relative w-full min-h-[80vh] bg-primary_deep mx-auto md:rounded-lg flex justify-between'>
-              <div className='w-full h-full py-3 px-4'>
-                {section === 2 && <BookingSeatTab data={seats} />}
-                {section === 3 && <AddOnTab data={addOns} />}
-                {section === 4 && <OrderTab detailModal={detailModal} setDetailModal={setDetailModal} dateValue={{date, ...timeValue}} />}
+              <div className="w-full h-full bg-transparent">
+                <div className='w-full h-full'>
+                  {section === 1 && <BookedSeatTab />}
+                  {section === 2 && <BookingSeatTab date={(date)} />}
+                  {section === 3 && <AddOnTab />}
+                  {section === 4 && <OrderTab detailModal={detailModal} setDetailModal={setDetailModal} dateValue={{date, ...timeValue}} />}
+                </div>
               </div>
               <Bounce bottom>
                 <div className='w-[95%] absolute bottom-0 left-0 right-0 mx-auto py-2'>
                   <button 
-                    disabled={!cartList.length}
+                    disabled={section !== 1 && !cartList.length}
                     onClick={()=>{section >= 4 ? setDetailModal(true) : setSection(section+1)}}
                     className='w-full mx-[auto] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'
                   >
@@ -246,7 +167,7 @@ function BookPage() {
               </Bounce>
             </div>
           </div>
-          <div className='w-[25%] hidden md:block'>
+          <div className='w-[25%] hidden lg:block'>
             <div className='w-full min-h-[90vh] bg-primary_deep py-3 px-3 mx-auto md:rounded-lg p-3'>
               <Cart />
             </div>
@@ -257,7 +178,7 @@ function BookPage() {
       {/* date calender  */}
       <Modal
         visible={calendar}
-        onCancel={()=>setCalendar(false)}
+        onCancel={()=>{setCalendar(false); setPreDate(date)}}
         className="bg-primary_deep text-white w-[200px]"
         bodyStyle={{backgroundColor: "#021422", padding: 0}}
         closable={false}
@@ -266,7 +187,7 @@ function BookPage() {
       >
         <div className='space-y-5'>
           <div className='w-full text-center'>
-            <Calendar className="w-full mx-auto bg-transparent text-white border-0" value={date} onChange={(d)=>setValue({...value, date: d})} />
+            <Calendar className="w-full mx-auto bg-transparent text-white border-0" value={preDate} onChange={(d)=>{setPreDate(d)}} />
           </div>
           <div className='w-full flex justify-center text-white space-x-3'>
             <div className='text-center space-y-1'>
@@ -294,7 +215,7 @@ function BookPage() {
             </div>
           </div>
           <div className='w-full text-center'>
-            <button onClick={()=>setCalendar(false)} className='w-[80%] mx-[auto] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Done</button>
+            <button onClick={()=>{setCalendar(false); setValue({...value, date: preDate})}} className='w-[80%] mx-[auto] h-[40px] rounded-lg bg-primary_base hover:opacity-80 text-primary_deeper font-medium'>Done</button>
           </div>
         </div>
       </Modal>

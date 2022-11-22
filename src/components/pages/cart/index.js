@@ -14,8 +14,8 @@ function Cart() {
   useMemo(() => {
     setTotal(
       Number(cartList?.length > 1 ?
-      cartList.reduce((a, b) => a + Number(b.price), 0):
-      cartList[0]?.price).toFixed(2)
+      Number(cartList.reduce((a, b) => Number(a) + Number(b.price || 0), 0)):
+      Number(cartList[0]?.price)).toFixed(2)
     )
   }, [cartList])
   return (
@@ -30,13 +30,19 @@ function Cart() {
           {cartList?.length ? (
             <div className='w-full'>
               {cartList?.map((n)=>(
-                <CartCard key={n.id} data={n} />
+                <CartCard 
+                  id={n.id}
+                  title={n.title}
+                  description={n.description}
+                  price={n.price}
+                />
               ))}
             </div>
             ) : (
               <Empty 
                 title="Cart is Empty"
                 description="Select available seat that match your preference."
+                icon
               />
           )}
         </div>

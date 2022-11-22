@@ -1,23 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Spin } from 'antd'
+import { Divider, Spin } from 'antd'
 import React, { useEffect } from 'react'
-import { useAvailableSection } from '../../../services/hooks/bookedSection'
+import { Fade } from 'react-reveal'
+import { useBookedSection } from '../../../services/hooks/bookedSection'
 import ListCard from '../card'
 import Empty from '../empty'
 
 
-function BookingSeatTab({date}) {
+function BookedSeatTab() {
 
   const {
-    mutate: getAvailableSection,
+    mutate: getBookedSection,
     isLoading,
-    data
-  } = useAvailableSection()
+    data,
+  } = useBookedSection()
 
-  useEffect(() => {getAvailableSection(date)}, [date])
+  useEffect(() => {getBookedSection()}, [])
   return (
     <Spin size="large" spinning={isLoading} wrapperClassName="w-100 h-full">
       <div className='w-full h-full py-3 px-4'>
+        <Fade big>
+          <div className='w-full'>
+            <p className='text-base font-medium '>Booked Section(s)</p>
+          </div>
+        </Fade>
+        <Divider className='bg-white' />
         {data?.length ? (
           <div className="row">
             {data?.map((n)=>(
@@ -33,9 +40,7 @@ function BookingSeatTab({date}) {
           </div>
           ) : (
             <Empty 
-              title="No available seat"
-              description="Choose another date"
-              icon
+              title="No booked section"
             />
         )}
       </div>
@@ -43,4 +48,4 @@ function BookingSeatTab({date}) {
   )
 }
 
-export default BookingSeatTab
+export default BookedSeatTab
