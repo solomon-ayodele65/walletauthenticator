@@ -68,7 +68,7 @@ function HomePage() {
 
             </div>
 
-            <div className="w-100 d-none d-md-block">
+            <div className="w-100">
               <div className="position-absolute bottom-0 start-50 end-0 translate-middle-x">
                 <hr className="bg-light" />
                 <div className="animate-zoom text-center text-light py-2">

@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 // import { QueryClient, QueryClientProvider } from "react-query";
 
 // const queryClient = new QueryClient();
+// const history = createHashHistory()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
