@@ -43,41 +43,27 @@
 
 
 // pages >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-.home-top{
-  width: 100%;
-  height: 100vh;
-  // background: url(../resources/images/home.gif);
-  // background-color: #061423;
-  // background-blend-mode: darken;
-  background: linear-gradient(rgba(1, 12, 34, 0.9),rgba(1, 12, 34, 0.9)), url(../resources/images/home.gif);
-  background-position: center;
-  background-size: cover;
+.home-body{
+	width: 100vw;
+	min-height: 100vh;
+	background: linear-gradient(rgba(31, 83, 255, 0.76),rgba(0, 0, 0, 0.87)), url('../resources/images/bg3.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
-.home-testimonial{
-  width: 100%;
-  min-height: 80vh;
-  background: url(../resources/images/feedback.svg);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+.auth-body{
+	width: 100vw;
+	min-height: 100vh;
+	background: linear-gradient(rgba(31, 83, 255, 0.76),rgba(0, 0, 0, 0.87)), url('../resources/images/bg2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 
-.booking-top{
-  width: 100%;
-  min-height: 200px;
-  background: linear-gradient(rgba(1, 12, 34, 0.9),rgba(1, 12, 34, 0.9)), url(../resources/images/booking.svg);
-  background-position: center;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+.ff-lobster{
+	font-family: 'Lobster', cursive;
 }
 
-.contact_top{
-  width: 100%;
-  height: 50vh;
-  background: url(../resources/images/contact.svg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.card-card{
+	background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
 }

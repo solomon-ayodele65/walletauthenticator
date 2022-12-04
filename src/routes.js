@@ -1,46 +1,40 @@
-import { Route, Routes } from "react-router";
-import Header from "./components/header";
-import Booking from "./pages/booking";
-import Contact from "./pages/contact";
-import DemoPage from "./pages/home";
-
+import React from 'react'
+import { Route, Routes } from 'react-router'
+import AuthPage from './pages/auth'
+import HomePage from './pages/home'
 
 function App() {
-
   const routes = [
     {
       path: "/",
-      element: <DemoPage />
+      element: <HomePage />
     },
     {
-      path: "/booking/*",
-      element: <Booking />
-    },
-    {
-      path: "/contact",
-      element: <Contact />
+      path: "/auth",
+      element: <AuthPage />
     },
   ]
   return (
-    <div className="w-100">
-      <Header />
+    <div className='w-full h-screen'>
       <Routes>
-        {
-          routes.map(({path, element})=> (
-            <Route key={path} path={path} element={element} />
-          ))
-        }
+        {routes.map(({path, element})=> (
+          <Route 
+            key={path} 
+            path={path} 
+            element={element} 
+          />
+        ))}
         <Route
           path="*"
           element={
             <div className="text-center pt-100p">
-              <p className="fs-1 fw-bold">There's nothing here!</p>
+              <p className="fs-1 fw-bold">Oops there seem to be nothing here!</p>
             </div>
           }
         />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

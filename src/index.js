@@ -5,26 +5,23 @@ import App from './routes';
 import 'antd/dist/antd.css';
 import './styles/index.scss'
 import './styles/general.scss'
+import './styles/animate.scss'
 
 // swiper css 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { RecoilRoot } from 'recoil';
-import { QueryClient, QueryClientProvider } from "react-query";
+// import { RecoilRoot } from 'recoil';
+// import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+// const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </RecoilRoot>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
